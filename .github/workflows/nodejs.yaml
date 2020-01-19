@@ -28,6 +28,7 @@ jobs:
         LOG_LEVEL: ERROR
         NODE_ENV: production
         REGION: us-west-1
+        SLACK_WEBHOOK_URL: https://some-url/slack/channel/token
 
     - name: define version
       id: version

@@ -1,42 +1,30 @@
 // @ts-nocheck
-import * as sinon from 'sinon';
-import { processor } from '../src';
-import { expect } from 'chai';
-// import { SNSEventRecord, SNSMessage } from 'aws-lambda';
-import { Context, Callback } from 'aws-lambda';
+import { lambdahandler } from '../src';
+import mockedEnv, { RestoreFn } from 'mocked-env';
 
-describe('index', () => {
-  let dummyEvent = {
-    headers: {},
-    body: null,
-    resource: '',
-  };
+import * as event from './fixtures/sns.event.v1.json';
 
-  let ctx: Context = {
+describe('index: ...', () => {
+  let restore: RestoreFn;
 
-  };
-
-  let cl: Callback<any> = {
-
-  };
-
-  /**
-   * Prepare a sandbox to run the tests in.
-   */
   beforeEach(() => {
-    // this.sandbox = sinon.sandbox.create();
+    restore = mockedEnv(
+      {
+        NODE_ENV: 'test',
+        LOG_LEVEL: 'ERROR',
+        REGION: 'non-exist-1',
+      },
+      { clear: true });
   });
 
-  /**
-   * Remove the sandbox
-   */
   afterEach(() => {
-    // this.sandbox.restore();
-    // AWS.restore();
+    restore({ restore: true });
   });
 
-  it('index: Test the available exports', () => {
-    let test = processor(dummyEvent);
-    // expect(test.hasRecords()).to.be.equal(false);
+  it('index: should return processed records', () => {
+    let expected = 1;
+    const result = lambdahandler(event);
+    let body = JSON.parse(result['body']);
+    expect(body.records).to.be.equal(expected);
   });
 });

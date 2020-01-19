@@ -21,7 +21,7 @@ repos:
     args: ['--fix=no']
   - id: check-yaml
     args: ['--allow-multiple-documents']
-# - repo: git://github.com/smian/pre-commit-makefile
-#   rev: 261f8fb4b31dfdc05d1a1d7fbde1f1462ecde66d
-#   hooks:
-#   - id: makefile-doc
+- repo: git://github.com/smian/pre-commit-makefile
+  rev: 261f8fb4b31dfdc05d1a1d7fbde1f1462ecde66d
+  hooks:
+  - id: makefile-doc

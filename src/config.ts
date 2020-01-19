@@ -15,4 +15,9 @@ const LOG_LEVEL: string = env
   .required()
   .asString();
 
-export { NODE_ENV, REGION, LOG_LEVEL };
+const SLACK_WEBHOOK_URL: string = env
+  .get('SLACK_WEBHOOK_URL')
+  .required()
+  .asString();
+
+export { NODE_ENV, REGION, LOG_LEVEL, SLACK_WEBHOOK_URL };

@@ -16,7 +16,7 @@
       false
     ],
     "ordered-imports": [
-      false
+      true
     ],
     "max-line-length": [
       true,

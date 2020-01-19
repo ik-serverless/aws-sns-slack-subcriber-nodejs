@@ -30,3 +30,8 @@ test: LOG_LEVEL=ERROR
 test: ## Test solution
 	$(if ${LOG_LEVEL},,$(error Must pass LOG_LEVEL=<DEBUG|INFO|WARN|ERROR>))
 	@npm test
+
+local: NODE_ENV=development
+local: LOG_LEVEL=ERROR
+local: ## Run locally
+	@npm run local

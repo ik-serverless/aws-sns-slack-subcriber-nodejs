@@ -14,7 +14,7 @@
     "local": "tsc -p tsconfig.build.json && npm run 001",
     "dev:install": "npm install --only=dev && npm install",
     "prod:install": "npm install --production",
-    "001": "./node_modules/.bin/lambda-local -f dist/index -e '{\"json\":\"here\"}'"
+    "001": "./node_modules/.bin/lambda-local -f dist/index -e test/fixtures/sns.event.v1.json"
   },
   "keywords": [
     "aws",

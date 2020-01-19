@@ -20,7 +20,8 @@ validate                       Validate with pre-commit hooks
 changelog                      Update changelog
 release                        Create release version
 validatejs                     Validate solution
-test                           Test solution 
+test                           Test solution
+local                          Run locally 
 ```
 <!-- END makefile-doc -->
 

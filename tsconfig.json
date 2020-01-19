@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "ES2018",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "rootDir": "./src",
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "removeComments": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "inlineSourceMap": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "declarationMap": false,
+    "declaration": false,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "forceConsistentCasingInFileNames": false,
+    "incremental": false,
+    "composite": false,
+    "noLib": false,
+    "preserveConstEnums": true
+  }
+}

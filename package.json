@@ -1,0 +1,54 @@
+{
+  "name": "step-function-controller",
+  "version": "0.1.0",
+  "description": "A simple typescript node project for AWS Lambda.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint --project tsconfig.json",
+    "pretest": "npm run lint",
+    "all": "npm run build && npm prune --production && rm -f dist/lambda.zip && zip -q -r dist/lambda.zip node_modules dist && npm ci",
+    "testt": "mocha -r ts-node/register test/**/*.spec.ts",
+    "start": "tsc && node dist/index.js",
+    "local": "tsc -p tsconfig.build.json && npm run 001",
+    "dev:install": "npm install --only=dev && npm install",
+    "prod:install": "npm install --production",
+    "001": "./node_modules/.bin/lambda-local -f dist/index -e '{\"json\":\"here\"}'"
+  },
+  "keywords": [
+    "aws",
+    "step-function",
+    "node",
+    "typescript",
+    "lambda"
+  ],
+  "author": "Ivan",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.19",
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
+    "@types/moment": "^2.13.0",
+    "@types/node": "^11.15.4",
+    "@types/sinon": "^7.0.6",
+    "@types/sinon-chai": "^3.2.2",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "prettier": "^1.14.2",
+    "sinon": "^7.2.3",
+    "sinon-chai": "^3.3.0",
+    "ts-node": "^8.0.2",
+    "tslint": "^5.12.1",
+    "tslint-config-standard": "^8.0.1",
+    "tslint-microsoft-contrib": "^6.0.0",
+    "typescript": "^3.3.3",
+    "aws-lambda-local": "^2.0.6"
+  },
+  "dependencies": {
+    "@dazn/lambda-powertools-logger": "^1.9.0",
+    "env-var": "^5.0.0",
+    "middy": "^0.33.2",
+    "moment": "^2.24.0"
+  }
+}

@@ -26,7 +26,7 @@ validatejs: ## Validate solution
 	@npm run lint
 
 test: NODE_ENV=development
-test: LOG_LEVEL=WARM
+test: LOG_LEVEL=ERROR
 test: ## Test solution
 	$(if ${LOG_LEVEL},,$(error Must pass LOG_LEVEL=<DEBUG|INFO|WARN|ERROR>))
 	@npm test

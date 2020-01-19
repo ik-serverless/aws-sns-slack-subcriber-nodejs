@@ -1,7 +1,7 @@
 // @ts-nocheck
-import { lambdahandler } from '../src';
+import { expect } from 'chai';
 import mockedEnv, { RestoreFn } from 'mocked-env';
-
+import { lambdahandler } from '../src';
 import * as event from './fixtures/sns.event.v1.json';
 
 describe('index: ...', () => {
@@ -14,17 +14,17 @@ describe('index: ...', () => {
         LOG_LEVEL: 'ERROR',
         REGION: 'non-exist-1',
       },
-      { clear: true });
+      {clear: true});
   });
 
   afterEach(() => {
-    restore({ restore: true });
+    restore({restore: true});
   });
 
-  it('index: should return processed records', () => {
+  it('index: should return processed records', async () => {
     let expected = 1;
-    const result = lambdahandler(event);
-    let body = JSON.parse(result['body']);
+    const result = await lambdahandler(event);
+    let body = JSON.parse(result.body);
     expect(body.records).to.be.equal(expected);
   });
 });

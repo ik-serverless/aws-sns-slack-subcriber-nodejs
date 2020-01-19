@@ -1,0 +1,22 @@
+{
+  "Records": [
+    {
+      "EventSource": "aws:sns",
+      "EventVersion": "1.0",
+      "EventSubscriptionArn": "arn:aws:sns:region:account:sns-name:uuid",
+      "Sns": {
+        "Type": "Notification",
+        "MessageId": "",
+        "TopicArn": "arn:aws:sns:region:account:sns-name",
+        "Subject": "ALARM: \"cpu-utilization-low\" in US West (N. California)",
+        "Message": "{ \"AlarmName\":\"cpu-utilization-low\" }",
+        "Timestamp": "2020-01-19T09:09:41.459Z",
+        "SignatureVersion": "1",
+        "Signature": "",
+        "SigningCertUrl": "",
+        "UnsubscribeUrl": "",
+        "MessageAttributes": {}
+      }
+    }
+  ]
+}

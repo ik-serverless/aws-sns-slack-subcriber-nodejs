@@ -24,20 +24,29 @@ jobs:
     - run: npm run build --if-present
     - run: npm run local
       env:
-        DEBUG: INFO
+        LOG_LEVEL: INFO
         NODE_ENV: production
         REGION: eu-west-1
+
     - run: npm run local
       env:
-        DEBUG: DEBUG
+        LOG_LEVEL: DEBUG
         NODE_ENV: production
         REGION: us-west-1
+
+    - run: npm test
+      env:
+        LOG_LEVEL: ERROR
+        NODE_ENV: production
+        REGION: us-west-1
+
     - name: define version
       id: version
       run: |
         echo "::set-output name=release_timestamp::$(date +%Y-%m-%d_%H.%m)"
         echo "::set-output name=tag_hash::${GITHUB_SHA::8}"
         echo "::set-output name=changelog::$(git log -1 --pretty=format:"%s")"
+
     - name: build artifact
       id: build-artifact
       run: |
@@ -69,7 +78,9 @@ jobs:
         prerelease: true
         body: |
           Changes in this Release
-          -${{ steps.define-version.outputs.changelog }}
+          - ${{ steps.define-version.outputs.changelog }}
+          - NodeJS Version: 12.x
+
     - name: Upload Release Asset
       id: upload-release-asset
       uses: actions/upload-release-asset@v1.0.1

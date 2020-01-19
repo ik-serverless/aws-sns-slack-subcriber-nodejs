@@ -6,10 +6,10 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "format": "prettier --write \"src/**/*.ts\"",
-    "lint": "tslint --project tsconfig.json",
+    "lint": "tslint --project tsconfig.build.json",
     "pretest": "npm run lint",
     "all": "npm run build && npm prune --production && rm -f dist/lambda.zip && zip -q -r dist/lambda.zip node_modules dist && npm ci",
-    "testt": "mocha -r ts-node/register test/**/*.spec.ts",
+    "test": "mocha --colors --compilers ts:ts-node/register test/**/*.spec.ts",
     "start": "tsc && node dist/index.js",
     "local": "tsc -p tsconfig.build.json && npm run 001",
     "dev:install": "npm install --only=dev && npm install",
@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "@dazn/lambda-powertools-logger": "^1.9.0",
+    "@slack/webhook": "^5.0.2",
     "env-var": "^5.0.0",
     "middy": "^0.33.2",
     "moment": "^2.24.0"

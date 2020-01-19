@@ -3,6 +3,4 @@ interface Response {
   body: string;
 }
 
-export {
-  Response
-};
+export { Response };

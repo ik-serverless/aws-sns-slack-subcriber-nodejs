@@ -62,9 +62,5 @@ describe('handler', () => {
         .utc()
         .toISOString(),
     });
-
-    // handler(null, null, (error: Error, result: any) => {
-
-    // });
   });
 });

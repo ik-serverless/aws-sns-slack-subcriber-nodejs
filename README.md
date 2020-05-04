@@ -29,5 +29,6 @@ local                          Run locally
 
 Submit a pull request
 
+## Ideas From
 
-import { SNSEventRecord, SNSMessage } from 'aws-lambda';
+- https://medium.com/cohealo-engineering/how-set-up-a-slack-channel-to-be-an-aws-sns-subscriber-63b4d57ad3ea
